@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+   <center>
+      <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <JFXTabPane fx:id="Admintabpane" style="-fx-background-position: center;" StackPane.alignment="CENTER">
+               <tabs>
+                <Tab fx:id="overv" text="Overview">
+                     <content>
+                        <StackPane prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <BarChart fx:id="chart" alternativeColumnFillVisible="true" barGap="50.0" categoryGap="50.0" maxHeight="600.0" maxWidth="1034.0" minHeight="400.0" minWidth="500.0" prefHeight="600.0" prefWidth="1034.0" title="statistique du projets , applications , utilisateurs">
+                                 <xAxis>
+                                    <CategoryAxis fx:id="Xou" endMargin="20.0" startMargin="20.0" tickLabelGap="10.0">
+                                       <tickLabelFont>
+                                          <Font size="17.0" />
+                                       </tickLabelFont></CategoryAxis>
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis fx:id="You" autoRanging="false" prefHeight="403.0" prefWidth="30.0" side="LEFT" tickUnit="1.0" upperBound="20.0">
+                                       <tickLabelFont>
+                                          <Font size="14.0" />
+                                       </tickLabelFont>
+                                    </NumberAxis>
+                                 </yAxis>
+                              </BarChart>
+                           </children>
+                        </StackPane>
+                     </content>
+                </Tab>
+                <Tab fx:id="add_users" text="Ajouter un Utilisateur">
+                     <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <center>
+                              <GridPane style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" percentWidth="30.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="40.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="30.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
+                                  <RowConstraints percentHeight="60.0" vgrow="SOMETIMES" />
+                                  <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
+                                        <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
+                                        <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label text="Nom d'utilisateur :" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Mot de passe :" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="repeter le mot de passe :" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXTextField fx:id="userTxt" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <JFXPasswordField fx:id="passTxt" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <JFXPasswordField fx:id="repassTxt" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                       </children>
+                                    </GridPane>
+                                    <Button fx:id="add_user" mnemonicParsing="false" onAction="#addUser" prefHeight="36.0" prefWidth="223.0" text="Ajouter .." GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                                 </children>
+                              </GridPane>
+                           </center>
+                        </BorderPane>
+                     </content>
+                </Tab>
+                  <Tab fx:id="SuppUser" text="Supprimer un Utilisateur">
+                     <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <center>
+                              <GridPane style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" percentWidth="60.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints percentHeight="10.0" vgrow="SOMETIMES" />
+                                  <RowConstraints percentHeight="80.0" vgrow="SOMETIMES" />
+                                  <RowConstraints percentHeight="10.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <JFXTreeTableView fx:id="treeview" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Button fx:id="delet_user" mnemonicParsing="false" onAction="#deleteUser" prefHeight="25.0" prefWidth="356.0" text="Supprimer ..." GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                    <GridPane GridPane.columnIndex="1">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="50.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="50.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints percentHeight="100.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label text="Filtrer" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <JFXTextField fx:id="filterField" GridPane.columnIndex="1" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </GridPane>
+                           </center>
+                        </BorderPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="add_pro" text="Ajouter un Pojet">
+                     <content>
+                        <ScrollPane fitToWidth="true">
+                           <content>
+                              <BorderPane prefHeight="1700.0">
+                                 <center>
+                                    <GridPane style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" percentWidth="60.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="0.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints percentHeight="2.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="6.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="2.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="4.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="2.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="4.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="2.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="4.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="2.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="4.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="2.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="6.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="2.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="6.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="2.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="6.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="2.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="6.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="2.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="6.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="2.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="21.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="5.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="40.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="60.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints percentHeight="100.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Intitulé du projet " GridPane.halignment="LEFT" GridPane.valignment="CENTER" />
+                                                <JFXTextArea fx:id="intitulé_pr" GridPane.columnIndex="1" />
+                                             </children>
+                                          </GridPane>
+                                          <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="40.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="60.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints percentHeight="100.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <JFXTextField fx:id="nom_pr" GridPane.columnIndex="1" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nom du projet" GridPane.halignment="LEFT" GridPane.valignment="CENTER" />
+                                             </children>
+                                          </GridPane>
+                                          <GridPane GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="40.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="60.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints percentHeight="100.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cadre obtention" GridPane.halignment="LEFT" GridPane.valignment="CENTER" />
+                                                <JFXTextField fx:id="cadre_obt" GridPane.columnIndex="1" />
+                                             </children>
+                                          </GridPane>
+                                          <GridPane GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="40.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="15.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="15.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints percentHeight="100.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Période de réalisation" GridPane.halignment="LEFT" GridPane.valignment="CENTER" />
+                                                <JFXDatePicker fx:id="date_dbt" GridPane.columnIndex="2" />
+                                                <Spinner fx:id="periode" prefHeight="25.0" prefWidth="116.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date Début" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Période" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                             </children>
+                                          </GridPane>
+                                          <GridPane GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="40.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="60.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints percentHeight="100.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Technologies mises en oeuvre" GridPane.halignment="LEFT" GridPane.valignment="CENTER" />
+                                                <JFXTextField fx:id="tech_mise" GridPane.columnIndex="1" />
+                                             </children>
+                                          </GridPane>
+                                          <GridPane GridPane.columnIndex="1" GridPane.rowIndex="11">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="40.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="60.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints percentHeight="100.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contexte du projet" GridPane.halignment="LEFT" GridPane.valignment="CENTER" />
+                                                <JFXTextArea fx:id="context_prs" GridPane.columnIndex="1" />
+                                             </children>
+                                          </GridPane>
+                                          <GridPane GridPane.columnIndex="1" GridPane.rowIndex="13">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="40.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="60.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints percentHeight="100.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Problématique" GridPane.halignment="LEFT" GridPane.valignment="CENTER" />
+                                                <JFXTextArea fx:id="problem" GridPane.columnIndex="1" />
+                                             </children>
+                                          </GridPane>
+                                          <GridPane GridPane.columnIndex="1" GridPane.rowIndex="15">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="40.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="60.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints percentHeight="100.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Solution preposer" GridPane.halignment="LEFT" GridPane.valignment="CENTER" />
+                                                <JFXTextArea fx:id="solu_pro" GridPane.columnIndex="1" />
+                                             </children>
+                                          </GridPane>
+                                          <GridPane GridPane.columnIndex="1" GridPane.rowIndex="17">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="40.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="60.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints percentHeight="100.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Etape du projet" GridPane.halignment="LEFT" GridPane.valignment="CENTER" />
+                                                <JFXTextArea fx:id="etape_pr" GridPane.columnIndex="1" />
+                                             </children>
+                                          </GridPane>
+                                          <GridPane GridPane.columnIndex="1" GridPane.rowIndex="19">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="40.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="60.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints percentHeight="100.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bénéfices client" GridPane.halignment="LEFT" GridPane.valignment="CENTER" />
+                                                <JFXTextArea fx:id="benefic_pr" GridPane.columnIndex="1" />
+                                             </children>
+                                          </GridPane>
+                                          <GridPane GridPane.columnIndex="1" GridPane.rowIndex="21">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="45.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="45.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <GridPane GridPane.columnIndex="1">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" percentWidth="100.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints percentHeight="45.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints percentHeight="10.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints percentHeight="45.0" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <Button mnemonicParsing="false" onAction="#rightMove" text="&gt;" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+                                                      <Button mnemonicParsing="false" onAction="#leftMove" text="&lt;" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                                                   </children>
+                                                </GridPane>
+                                                <JFXListView fx:id="userList" />
+                                                <JFXListView fx:id="princip_collab_list" GridPane.columnIndex="2" />
+                                             </children>
+                                          </GridPane>
+                                          <Button fx:id="create_project" mnemonicParsing="false" onAction="#créer_projet" prefHeight="43.0" prefWidth="218.0" text="Ajouter ..." GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="22" GridPane.valignment="CENTER" />
+                                          <Label text="Ajouter des collaborateurs pour le projet" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="20" GridPane.valignment="CENTER">
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </GridPane>
+                                 </center>
+                              </BorderPane>
+                           </content>
+                        </ScrollPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="deleteusertap" text="Supprimer un Projet">
+                     <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <center>
+                              <GridPane style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" percentWidth="8.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="84.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="8.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints percentHeight="10.0" vgrow="SOMETIMES" />
+                                  <RowConstraints percentHeight="80.0" vgrow="SOMETIMES" />
+                                  <RowConstraints percentHeight="10.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <JFXTreeTableView fx:id="deleteTree" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <GridPane GridPane.columnIndex="1">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="50.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="50.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints percentHeight="100.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label text="Filtrer" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <JFXTextField fx:id="projectFilter" GridPane.columnIndex="1" />
+                                       </children>
+                                    </GridPane>
+                                    <Button fx:id="delete_project" mnemonicParsing="false" onAction="#delete_project" prefHeight="25.0" prefWidth="356.0" text="Supprimer ..." GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                 </children>
+                              </GridPane>
+                           </center>
+                        </BorderPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="ajouter_app" text="Ajouter une application">
+                     <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <center>
+                              <GridPane style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="50.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="50.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints percentHeight="100.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <GridPane>
+                                      <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="90.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints percentHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="34.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="7.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="2.0" vgrow="SOMETIMES" />
+                                          <RowConstraints percentHeight="25.0" vgrow="SOMETIMES" />
+                                        <RowConstraints percentHeight="2.0" vgrow="SOMETIMES" />
+                                        <RowConstraints percentHeight="10.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Selectionner un projet" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter les informations de l'application" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                          <TextField fx:id="app_name" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <TextArea fx:id="app_descrip" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <Button fx:id="add_app" mnemonicParsing="false" onAction="#ajouter_app" prefHeight="47.0" prefWidth="329.0" text="Ajouter ..." GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+                                          <JFXListView fx:id="project_list" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                       </children>
+                                    </GridPane>
+                                    <GridPane GridPane.columnIndex="1">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                          <RowConstraints percentHeight="10.0" vgrow="SOMETIMES" />
+                                        <RowConstraints percentHeight="90.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <GridPane GridPane.rowIndex="1">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" percentWidth="40.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="15.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" percentWidth="40.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints percentHeight="95.0" vgrow="SOMETIMES" />
+                                                <RowConstraints percentHeight="5.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <GridPane GridPane.columnIndex="1">
+                                                  <columnConstraints>
+                                                    <ColumnConstraints hgrow="SOMETIMES" percentWidth="100.0" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                    <RowConstraints percentHeight="45.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints percentHeight="10.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints percentHeight="45.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                   <children>
+                                                      <Button mnemonicParsing="false" onAction="#to_right" text="&gt;" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+                                                      <Button mnemonicParsing="false" onAction="#to_left" text="&lt;" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                                                   </children>
+                                                </GridPane>
+                                                <JFXListView fx:id="Users_list_2" />
+                                                <JFXListView fx:id="select_users" GridPane.columnIndex="2" />
+                                             </children>
+                                          </GridPane>
+                                          <GridPane>
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" percentWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints percentHeight="100.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter des collaborateurs Simple" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </GridPane>
+                           </center>
+                        </BorderPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="modif_pro" text="Modifier un projet">
+                     <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <center>
+                              <GridPane style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" percentWidth="8.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="8.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints percentHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints percentHeight="55.0" vgrow="SOMETIMES" />
+                                    <RowConstraints percentHeight="5.0" vgrow="SOMETIMES" />
+                                  <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
+                                  <RowConstraints percentHeight="10.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="45.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" percentWidth="10.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="45.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints percentHeight="100.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <GridPane GridPane.columnIndex="1">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" percentWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints percentHeight="45.0" vgrow="SOMETIMES" />
+                                              <RowConstraints percentHeight="10.0" vgrow="SOMETIMES" />
+                                              <RowConstraints percentHeight="45.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Button mnemonicParsing="false" onAction="#toRi" text="&gt;" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+                                                <Button mnemonicParsing="false" onAction="#tolef" text="&lt;" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                                             </children>
+                                          </GridPane>
+                                          <JFXListView fx:id="no_collab_users_list" />
+                                          <JFXListView fx:id="newCollab_list" GridPane.columnIndex="2" />
+                                       </children>
+                                    </GridPane>
+                                    <JFXTreeTableView fx:id="modif_pro_list" onMouseClicked="#tata" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <GridPane GridPane.columnIndex="1">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="50.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="50.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints percentHeight="100.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <JFXTextField fx:id="modif_pro_filter" GridPane.columnIndex="1" />
+                                          <Label text="Filtrer" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                       </children>
+                                    </GridPane>
+                                    <Button fx:id="edit_project" mnemonicParsing="false" onAction="#modif_project" prefHeight="43.0" prefWidth="243.0" text="Modifier ..." GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                                 </children>
+                              </GridPane>
+                           </center>
+                        </BorderPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="create_doc" text="Création d'une documentation">
+                    <content>
+                      <BorderPane>
+                           <center>
+                              <GridPane BorderPane.alignment="CENTER">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" percentWidth="8.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="84.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="8.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints percentHeight="10.0" vgrow="SOMETIMES" />
+                                  <RowConstraints percentHeight="80.0" vgrow="SOMETIMES" />
+                                  <RowConstraints percentHeight="10.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <JFXTreeTableView fx:id="app_list" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <GridPane GridPane.columnIndex="1">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="50.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="50.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints percentHeight="100.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <JFXTextField fx:id="app_filter" GridPane.columnIndex="1" />
+                                          <Label text="Filtrer" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                       </children>
+                                    </GridPane>
+                                    <JFXButton fx:id="generate" onAction="#create_doc" prefHeight="37.0" prefWidth="243.0" text="Générer" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                 </children>
+                              </GridPane>
+                           </center></BorderPane>
+                    </content>
+                  </Tab>
+                  <Tab fx:id="export_Doc" text="Exporter une documentation">
+                    <content>
+                      <BorderPane>
+                           <center>
+                              <GridPane BorderPane.alignment="CENTER">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="80.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints percentHeight="100.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <GridPane>
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" percentWidth="90.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints percentHeight="10.0" vgrow="SOMETIMES" />
+                                        <RowConstraints percentHeight="80.0" vgrow="SOMETIMES" />
+                                        <RowConstraints percentHeight="10.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <JFXTreeTableView fx:id="app_list_final_doc" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <GridPane GridPane.columnIndex="1">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" percentWidth="50.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" percentWidth="50.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints percentHeight="100.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label text="Filtrer" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                                <JFXTextField fx:id="app_list_final_filter" GridPane.columnIndex="1" />
+                                             </children>
+                                          </GridPane>
+                                          <JFXButton fx:id="export" onAction="#generate_final_doc" prefHeight="40.0" prefWidth="209.0" text="Exporter ...." GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                       </children>
+                                    </GridPane>
+                                    <GridPane GridPane.columnIndex="1">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
+                                        <RowConstraints percentHeight="70.0" vgrow="SOMETIMES" />
+                                        <RowConstraints percentHeight="10.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <GridPane>
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" percentWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints percentHeight="50.0" vgrow="SOMETIMES" />
+                                              <RowConstraints percentHeight="50.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <GridPane GridPane.rowIndex="1">
+                                                  <columnConstraints>
+                                                    <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" percentWidth="60.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                    <RowConstraints percentHeight="100.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                   <children>
+                                                      <JFXTextField fx:id="doc_name" GridPane.columnIndex="1" />
+                                                   </children>
+                                                </GridPane>
+                                                <Label text="Le nom de la Documentation " GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                             </children>
+                                          </GridPane>
+                                          <GridPane GridPane.rowIndex="1">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="90.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints percentHeight="5.0" vgrow="SOMETIMES" />
+                                                <RowConstraints percentHeight="5.0" vgrow="SOMETIMES" />
+                                                <RowConstraints percentHeight="5.0" vgrow="SOMETIMES" />
+                                                <RowConstraints percentHeight="5.0" vgrow="SOMETIMES" />
+                                                <RowConstraints percentHeight="5.0" vgrow="SOMETIMES" />
+                                                <RowConstraints percentHeight="5.0" vgrow="SOMETIMES" />
+                                                <RowConstraints percentHeight="5.0" vgrow="SOMETIMES" />
+                                                <RowConstraints percentHeight="5.0" vgrow="SOMETIMES" />
+                                                <RowConstraints percentHeight="5.0" vgrow="SOMETIMES" />
+                                                <RowConstraints percentHeight="5.0" vgrow="SOMETIMES" />
+                                                <RowConstraints percentHeight="5.0" vgrow="SOMETIMES" />
+                                                <RowConstraints percentHeight="5.0" vgrow="SOMETIMES" />
+                                                <RowConstraints percentHeight="5.0" vgrow="SOMETIMES" />
+                                                <RowConstraints percentHeight="5.0" vgrow="SOMETIMES" />
+                                                <RowConstraints percentHeight="5.0" vgrow="SOMETIMES" />
+                                                <RowConstraints percentHeight="5.0" vgrow="SOMETIMES" />
+                                                <RowConstraints percentHeight="5.0" vgrow="SOMETIMES" />
+                                                <RowConstraints percentHeight="5.0" vgrow="SOMETIMES" />
+                                                <RowConstraints percentHeight="5.0" vgrow="SOMETIMES" />
+                                              <RowConstraints percentHeight="5.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label text="Projet" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER" />
+                                                <Label text="Application" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="12" GridPane.valignment="CENTER" />
+                                                <Label text="Image and description" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="15" GridPane.valignment="CENTER" />
+                                                <JFXCheckBox fx:id="intitulé_check" text="Intitulé du projet" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                                                <JFXCheckBox fx:id="nom_proj_check" text="Nom du projet" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" />
+                                                <JFXCheckBox fx:id="cadre_obt_proj_check" text="Cadre d'otention du projet" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
+                                                <JFXCheckBox fx:id="date_déb_proj_checkj" text="Date début du projet" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" />
+                                                <JFXCheckBox fx:id="période_proj_check" text="Période de réalisation du projet" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="5" />
+                                                <JFXCheckBox fx:id="tech_mise_oeuv_check" text="Technologies mises en œuvre" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="6" />
+                                                <JFXCheckBox fx:id="context_proj_checkj" text="Contexte du projet" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="7" />
+                                                <JFXCheckBox fx:id="problém_proj_check" text="Problématique" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="8" />
+                                                <JFXCheckBox fx:id="solution_prepo_check" text="Solution proposée" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="9" />
+                                                <JFXCheckBox fx:id="etape_proj_check" text="Étapes du projet" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="10" />
+                                                <JFXCheckBox fx:id="béfin_proj_check" text="Bénéfices client" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="11" />
+                                                <JFXCheckBox fx:id="nom_app_check" text="Nom de l'application" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
+                                                <JFXCheckBox fx:id="descrip_app_check" text="Description de l'application" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
+                                                <JFXCheckBox fx:id="img_title_check" text="image + text descriptive" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="16" GridPane.valignment="CENTER" />
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </GridPane>
+                           </center></BorderPane>
+                    </content>
+                  </Tab>
+               </tabs>
+               <StackPane.margin>
+                  <Insets />
+               </StackPane.margin>
+            </JFXTabPane>
+            <Button fx:id="sign_out" mnemonicParsing="false" text="Sign Out" StackPane.alignment="TOP_RIGHT">
+               <StackPane.margin>
+                  <Insets right="10.0" top="5.0" />
+               </StackPane.margin></Button>
+         </children>
+      </StackPane>
+   </center>
+</BorderPane>

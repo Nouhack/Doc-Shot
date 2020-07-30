@@ -1,0 +1,11 @@
+.default-color0.chart-bar { -fx-bar-fill: green }
+
+
+#login,#cancel{
+	-fx-background-color: #1eb1c7;
+	-fx-text-fill: white;
+}
+
+.root{
+	-fx-background-color: white;
+}

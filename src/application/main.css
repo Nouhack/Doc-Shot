@@ -1,0 +1,13 @@
+.root{
+	-fx-background-color: white;
+}
+
+#add_user,#delet_user,#create_project,#delete_project,#add_app,#edit_project,#generate,#export,#login,#cancel,#sign_out{
+	-fx-background-color: #1eb1c7;
+	-fx-text-fill: white;
+}
+
+
+.chart-bar {
+    -fx-bar-fill: #00b3ca; 
+}

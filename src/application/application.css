@@ -1,0 +1,13 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.default-color0.chart-bar { -fx-bar-fill: green }
+
+
+#login,#cancel{
+	-fx-background-color: #1eb1c7;
+	-fx-text-alignment: white;
+}
+
+.root{
+	-fx-background-color: white;
+}
